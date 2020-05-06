@@ -1,6 +1,8 @@
 # DeepNets_Project
 5/5/20
 
+Data Augmentation is to be done to overcome overfitting. (92-> 88 % ) 
+
 6 epochs, 100 batch size , 256 x 256 x 3 -> 64, 128, 256, flatten (dense)
 accuracy : .8550, .8789, .8832, .8857, .8905, .8955
 
