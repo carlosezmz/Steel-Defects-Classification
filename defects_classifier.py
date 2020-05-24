@@ -1,5 +1,5 @@
 
-
+import numpy as np
 
 # model
 from keras.layers import Dense
@@ -29,7 +29,7 @@ class defects_classifier:
     
         conv_model_gaus_dr = Sequential()
 
-        conv_model_gaus_dr.add(Conv2D(32, (3, 3), input_shape=(150, 150, 1), activation=activation))
+        conv_model_gaus_dr.add(Conv2D(32, (3, 3), input_shape=(64, 64, 1), activation=activation))
         conv_model_gaus_dr.add(BatchNormalization())
         conv_model_gaus_dr.add(Conv2D(64, (3, 3), activation=activation))
         conv_model_gaus_dr.add(MaxPool2D((2, 2)))

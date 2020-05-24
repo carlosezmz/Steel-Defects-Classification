@@ -40,7 +40,7 @@ class steel_defects:
     
         for img in images:
         
-            yield np.resize(img, (150, 150, 3))
+            yield np.resize(img, (64, 64, 3))
         
         
     def greyscale_images(self, images):
