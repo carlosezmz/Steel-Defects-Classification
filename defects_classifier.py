@@ -60,7 +60,7 @@ class defects_classifier:
     
         plt.plot(history.history['accuracy'], c='r', label='Training')
         plt.plot(history.history['val_accuracy'], c='b', label='Validation')
-        plt.xticks(np.arange(1, len(history.history['val_accuracy'])+1, x_width))
+        plt.xticks(np.arange(len(history.history['val_accuracy'])+2, x_width), np.arange(1, len(history.history['val_accuracy'])+1, x_width))
         plt.legend()
         plt.xlabel('Epoch')
         plt.ylabel('Accuracy')
@@ -122,8 +122,8 @@ class defects_classifier:
 
         lbls_pred = model.predict(imgs)
 
-        lbls_pred = convert_class(lbls_pred)
-        lbls_tr = convert_class(lbls_true)
+        lbls_pred = self.convert_class(lbls_pred)
+        lbls_tr = self.convert_class(lbls_true)
 
         print('{}'.format(dataset))
         print('')

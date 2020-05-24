@@ -60,7 +60,7 @@ class defects_classifier:
     
         plt.plot(history.history['accuracy'], c='r', label='Training')
         plt.plot(history.history['val_accuracy'], c='b', label='Validation')
-        plt.xticks(np.arange(1, len(history.history['val_accuracy'])+1, x_width))
+        plt.xticks(np.arange(len(history.history['val_accuracy'])+2, x_width), np.arange(1, len(history.history['val_accuracy'])+1, x_width))
         plt.legend()
         plt.xlabel('Epoch')
         plt.ylabel('Accuracy')
