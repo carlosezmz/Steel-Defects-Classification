@@ -6,6 +6,23 @@ import cv2
 import numpy as np
 from tqdm import tqdm
 
+# model tools
+from sklearn.model_selection import train_test_split
+from tensorflow.keras.utils import to_categorical
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
+
+
+
+# model
+
+from keras.preprocessing import image
+
+
+
+
+
+
 
 class steel_defects:
 
@@ -31,11 +48,14 @@ class steel_defects:
         img_list = []
     
         for img in images:
+            
+            width, heigh, channels = img.shape
 
         
-            img[:,:,0] = 0.2125*img[:,:,0]
-            img[:,:,1] = 0.7154*img[:,:,1]
-            img[:,:,2] = 0.0721*img[:,:,2]
+            img = 0.2125*img[:,:,0] + 0.7154*img[:,:,1] + 0.0721*img[:,:,2]
+            
+            img = img.reshape(width, heigh, 1)
+            
         
         # formula obtained from 
         # https://stackoverflow.com/questions/12201577/how-can-i-convert-an-rgb-image-into-grayscale-in-python
@@ -144,5 +164,11 @@ class steel_defects:
 
         lbls = np.array(lbls)
         
+        lbls = lbls - 1
+        
+        lbls = to_categorical(lbls)
+        
         return imgs, lbls
     
+    
+  
