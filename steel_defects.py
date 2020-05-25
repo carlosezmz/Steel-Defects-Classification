@@ -27,6 +27,18 @@ from keras.preprocessing import image
 class steel_defects:
 
     def load_images(self, image_paths):
+        
+        """
+            This fuction loads images from a given directory as a generator.
+            
+            Parameters:
+            
+                image_paths - images directory
+                
+            Yield:
+            
+                image
+        """
     
         fill_list = []
     
@@ -34,7 +46,12 @@ class steel_defects:
             path = image_paths[idx]
             yield cv2.imread(path)
         
+        
     def resize_images(self, images):
+        
+        """
+            This function resizes images to 64 by 64
+        """
     
         img_list = []
     
@@ -44,6 +61,10 @@ class steel_defects:
         
         
     def greyscale_images(self, images):
+        
+        """
+            This function converts an image into gray scale.
+        """
     
         img_list = []
     
@@ -64,6 +85,18 @@ class steel_defects:
 
         
     def load_imgsLabels(self, image_paths):
+        
+        """
+            This function loads and process images from a given directory.
+            
+            Parameters:
+            
+                image_paths - images directory.
+                
+            Return:
+            
+                images_list - array of images.
+        """
     
 #     label = image_paths[-1]
     
@@ -74,8 +107,22 @@ class steel_defects:
         images_list = self.greyscale_images(images)
 
         return images_list
+    
+    
 
     def features_to_np_array(self, images):
+        
+        """
+            This function converts and stack images as a numpy array.
+            
+            Parameters:
+            
+                images - images generator.
+                
+            Return:
+            
+                images - images numpy array.
+        """
     
         images = list(images)
     
@@ -85,6 +132,11 @@ class steel_defects:
 
     
     def make_imgs_list(self, imgs_dir, imgs_list):
+        
+        """
+            This function makes a list of images in a directory.
+            
+        """
     
         empty_list = []
     
@@ -100,6 +152,10 @@ class steel_defects:
 
 
     def get_all_imgs(self, from_dir, labels_list):
+        
+        """
+            This function loads images from a directory based on the desired label.
+        """
     
         imgs_list = []
         labels_list = []
@@ -127,6 +183,20 @@ class steel_defects:
         return imgs_list, labels_list
     
     def load_defects(self, val_dir):
+        
+        """
+            This function loads class from 1 to 4 from steel defects.
+            
+            Parameters:
+            
+                val_dir - images directory.
+                
+            Return:
+            
+                imgs - images numpy array
+                
+                lbls - class labels numpy array
+        """
         
         img_list_1 = os.listdir(val_dir+'/'+'1')
         img_list_2 = os.listdir(val_dir+'/'+'2')

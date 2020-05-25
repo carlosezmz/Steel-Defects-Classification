@@ -26,6 +26,10 @@ import matplotlib.pyplot as plt
 class defects_classifier:
 
     def make_model(activation='relu', loss='categorical_crossentropy', optimizer='sgd', sp_dropout=0.1, dropout=0.1):
+        
+        """
+            This creates a new CNN model evey time is called.
+        """
     
         conv_model_gaus_dr = Sequential()
 
@@ -53,6 +57,10 @@ class defects_classifier:
     
     
     def plot_accuracy(self, history, title, x_width, label_size = 15, save=True):
+        
+        """
+            This function plots the accuracy of the history per epoch during training.
+        """
     
         matplotlib.rcParams.update({'font.size': label_size})
     
@@ -74,6 +82,10 @@ class defects_classifier:
         
         
     def plot_loss(self, history, title, x_width, label_size = 15, save=True):
+        
+        """
+            This function plots the loss of the history per epoch during training.
+        """
     
         matplotlib.rcParams.update({'font.size': label_size})
     
@@ -94,6 +106,10 @@ class defects_classifier:
         
         
     def convert_class(self, y):
+        
+        """
+            This function takes class label with more than one feature and returns an array with encoded class labels.
+        """
     
         lb_list = []
     
@@ -112,6 +128,10 @@ class defects_classifier:
     
     def load_model(model):
         
+        """
+            This funtion loads the model from a given directory.
+        """
+        
         model_trd_aug = load_model(model)
         
         return model_trd_aug
@@ -119,11 +139,15 @@ class defects_classifier:
     
     
     def cl_report(self, model, imgs, lbls_true, dataset):
+        
+        """
+            This function generates the statistical report of a classification model.
+        """
 
         lbls_pred = model.predict(imgs)
 
-        lbls_pred = convert_class(lbls_pred)
-        lbls_tr = convert_class(lbls_true)
+        lbls_pred = self.convert_class(lbls_pred)
+        lbls_tr = self.convert_class(lbls_true)
 
         print('{}'.format(dataset))
         print('')
