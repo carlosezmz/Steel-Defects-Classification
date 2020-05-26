@@ -5,7 +5,7 @@
 EDA - EDA, segm, data_augmentation.ipynb\
 Binary Classification - Binary_2_save.ipynb\
 Multi-class Classification - Multiclass-classification\
-Defect Detection - Defect_Detection-Unet.ipynb\
+Defect Detection - Defect_Detection-Unet.ipynb
 
 # Proposal, Report and Final Presentation:
 
